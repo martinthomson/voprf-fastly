@@ -13,3 +13,19 @@ argument.
 The client reads an input from stdin, contacts the server to obtain a public
 key and VOPRF result, validates that result, then emits the resulting value to
 stdout.
+
+For example, to run against a local instance:
+
+```
+$ echo -n 'testing' | cargo run --bin voprf-client -- http://localhost:7676/ > output
+$ xxd output
+```
+
+
+## Server Testing
+
+The server can be tested locally using [the `fastly` CLI](https://github.com/fastly/cli):
+
+```
+$ fastly compute serve
+```
