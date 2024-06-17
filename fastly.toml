@@ -1,0 +1,17 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = ["mt@lowentropy.net"]
+cloned_from = "https://github.com/fastly/compute-starter-kit-rust-default"
+description = "A Verifiable, Oblivious Psuedo-Random Function Service using Fastly APIs"
+language = "rust"
+manifest_version = 3
+name = "voprf-fastly"
+service_id = "h6rOiN66SkA7JuOu9I9hJ2"
+
+[scripts]
+build = "cargo build --bin voprf-fastly --release --target wasm32-wasi --color always"
+
+[[local_server.secret_stores.voprf-secrets]]
+key = "seed"
+data = "abcdefg"
